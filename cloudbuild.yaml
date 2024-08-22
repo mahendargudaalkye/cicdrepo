@@ -1,5 +1,6 @@
 steps:
 - name: 'gcr.io/cloud-builders/gcloud'
   args: ['compute', 'ssh', 'ci-cd-test-instance', '--zone=us-central1-a', '--command', 'sudo /home/mahendar_guda/deploy.sh']
+  timeout: '600s'
 
-timeout: '600s'
+logsBucket: 'gs://manavbvbucket'

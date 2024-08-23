@@ -17,7 +17,8 @@ serviceAccount: 'cicdpipelinefortestservers@dingoo-backups.iam.gserviceaccount.c
 options:
   defaultLogsBucketBehavior: REGIONAL_USER_OWNED_BUCKET
 
-logsBucket: 'gs://manavbucket'
+logsBucket: 'gs://manavbvbucket'
+
 
 
 

@@ -12,9 +12,8 @@ steps:
 
 timeout: '600s'
 
-logsBucket: 'gs://manavbucket'
-
 serviceAccount: 'cicdpipelinefortestservers@dingoo-backups.iam.gserviceaccount.com'
+
 
 
 

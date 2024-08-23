@@ -13,6 +13,8 @@ steps:
 
 timeout: '600s'
 
-logsBucket: 'gs://manavbvbucket'
+logsBucket: 'gs://manavbucket'
+
+
 
 

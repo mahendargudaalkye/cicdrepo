@@ -1,12 +1,23 @@
 steps:
 - name: 'gcr.io/cloud-builders/gcloud'
-  args: [
-    'compute', 
-    'ssh', 
-    'mahendar_guda@ci-cd-test-instance', 
-    '--zone=us-central1-a', 
-    '--command', 'sudo /home/mahendar_guda/deploy.sh'
-  ]
+  entrypoint: 'bash'
+  args:
+  - '-c'
+  - |
+    # Create SSH directory and add private key
+    mkdir -p /builder/home/.ssh
+    echo -e "-----BEGIN OPENSSH PRIVATE KEY-----\n\
+AAEAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBMCeTfy2U2kEqFFakoVYvqVMNS9neaSyDS6ADWMFPYHKW6WKRKfIXHLOi+WqxN1KoanQu9jqN3go0gJlTDvFVNc=\n\
+-----END OPENSSH PRIVATE KEY-----" > /builder/home/.ssh/google_compute_engine
+
+    # Ensure the SSH key file has the correct permissions
+    chmod 600 /builder/home/.ssh/google_compute_engine
+
+    # Add known host key to avoid host verification issues
+    ssh-keyscan -H 34.136.215.50 >> /builder/home/.ssh/known_hosts
+
+    # Execute the command on the VM
+    gcloud compute ssh mahendar_guda@ci-cd-test-instance --zone=us-central1-a --command='sudo /home/mahendar_guda/deploy.sh'
   id: 'ssh-to-vm'
   serviceAccount: 'cicdpipelinefortestservers@dingoo-backups.iam.gserviceaccount.com'
 

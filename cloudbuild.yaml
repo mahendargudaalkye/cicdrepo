@@ -14,6 +14,11 @@ timeout: '600s'
 
 serviceAccount: 'cicdpipelinefortestservers@dingoo-backups.iam.gserviceaccount.com'
 
+options:
+  defaultLogsBucketBehavior: REGIONAL_USER_OWNED_BUCKET
+
+logsBucket: 'gs://manavbucket'
+
 
 
 

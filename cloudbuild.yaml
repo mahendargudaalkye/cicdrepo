@@ -9,11 +9,13 @@ steps:
       --project=dingoo-backups \
       --command='sudo bash /home/mahendar_guda_alkye_com/deploy.sh'
   id: 'ssh-to-vm'
-  serviceAccount: 'cicdpipelinefortestservers@dingoo-backups.iam.gserviceaccount.com'
 
 timeout: '600s'
 
 logsBucket: 'gs://manavbucket'
+
+serviceAccount: 'cicdpipelinefortestservers@dingoo-backups.iam.gserviceaccount.com'
+
 
 
 

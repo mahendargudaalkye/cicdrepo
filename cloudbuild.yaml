@@ -1,2 +1,18 @@
+steps:
+- name: 'gcr.io/cloud-builders/gcloud'
+  entrypoint: 'bash'
+  args:
+    - '-c'
+    - |
+      gcloud compute ssh mahendar_guda@mahendargudainstance \
+      --zone=us-central1-a \
+      --project=dingoo-backups \
+      --command='sudo bash /home/mahendar_guda_alkye_com/deploy.sh'
+  id: 'ssh-to-vm'
+  serviceAccount: 'cicdpipelinefortestservers@dingoo-backups.iam.gserviceaccount.com'
+
+timeout: '600s'
+
+logsBucket: 'gs://manavbvbucket'
 
 

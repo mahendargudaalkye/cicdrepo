@@ -4,7 +4,7 @@ steps:
   args:
     - '-c'
     - |
-      gcloud compute ssh mahendar_guda@mahendargudainstance \
+      gcloud compute ssh mahendar_guda@testinstance \
       --zone=us-central1-a \
       --project=dingoo-backups \
       --command='sudo bash /home/mahendar_guda_alkye_com/deploy.sh'

@@ -2,8 +2,10 @@ steps:
 - name: 'gcr.io/cloud-builders/gcloud'
   args: ['compute', 'ssh', 'ci-cd-test-instance', '--zone=us-central1-a', '--command', 'sudo /home/mahendar_guda/deploy.sh']
   id: 'ssh-to-vm'
+  serviceAccount: 'cicdpipelinefortestservers@dingoo-backups.iam.gserviceaccount.com'
 
 timeout: '600s'
 
 # Specify the logs bucket
 logsBucket: 'gs://manavbvbucket'
+
